@@ -1,8 +1,3 @@
-<?php
-if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    $name = $POST['name'];
-}
-?>
 <html>
 <head>
 <meta charset="UTF-8">
