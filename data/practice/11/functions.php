@@ -18,22 +18,17 @@ function check_words($word, $lencth){
     }
 }
 function get_db_Conect(){
-    $dsn = 'mysql:dbname=sample;host=db;charset=utf8';
-    $user = 'user';
-    $password = 'userpass';
 
     try{
+        $dsn = 'mysql:dbname=sample;host=db;charset=utf8';
+        $user = 'user';
+        $password = 'userpass';
 
         $dbh = new PDO($dsn, $user, $password);
-        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "";
-        $stmt = $dbh->prepare($sql);
-        $stmt->execute();
-        echo '接続に成功しました';
-
     }catch (PDOException $e){
-        print($e->getMessage());
+        echo($e->getMessage());
         die();
-
     }
+    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    return $dbh;
 }
